@@ -5,7 +5,7 @@ from aiogram.methods.send_message import SendMessage
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from .states import UserInputState
-from config import check_user
+from config import check_user, admin_id
 
 router = Router()
 
@@ -20,7 +20,7 @@ async def send_question(message: Message, state: FSMContext):
         InlineKeyboardButton(text="💥 Заблокировать", callback_data=f"ban_{message.from_user.id}")
     )
     await SendMessage(
-        chat_id=1605007235,
+        chat_id=admin_id,
         text=message.text,
         reply_markup=builder.as_markup()
     )
@@ -37,7 +37,7 @@ async def send_question(message: Message, state: FSMContext):
         InlineKeyboardButton(text="💥 Заблокировать", callback_data=f"ban_{message.from_user.id}")
     )
     await SendMessage(
-        chat_id=1605007235,
+        chat_id=admin_id,
         text=message.text,
         reply_markup=builder.as_markup()
     )

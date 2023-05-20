@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 mongo = AsyncIOMotorClient(environ.get("MONGO")).datamine
+admin_id = environ.get("ADMIN_ID")
 
 
 class Bot(Bot):
