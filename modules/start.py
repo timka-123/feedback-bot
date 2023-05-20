@@ -23,7 +23,7 @@ async def start(message: Message):
 
 
 @router.callback_query(Text("question"))
-async def question_callback(callback: CallbackQuery, state: FSMContext):
+async def question(callback: CallbackQuery, state: FSMContext):
     if await check_user(callback.from_user.id):
         return
     await state.set_state(UserInputState.question)
@@ -49,7 +49,7 @@ async def suggest(callback: CallbackQuery, state: FSMContext):
 
 
 @router.callback_query(Text("cancel"))
-async def calcel(callback: CallbackQuery, state: FSMContext):
+async def cancel(callback: CallbackQuery, state: FSMContext):
     if await check_user(callback.from_user.id):
         return
     await state.clear()
